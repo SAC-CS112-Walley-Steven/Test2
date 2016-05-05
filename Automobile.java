@@ -7,7 +7,7 @@ public class Automobile {
 	private String color;
 	private String name;
 	private int numOfGears;
-	private static int currentGear;
+	private int currentGear;
 	
 	public Automobile (int year, String make, String model, String color, String name, int numOfGears)
 	{
@@ -46,10 +46,18 @@ public class Automobile {
 	{
 		this.numOfGears = numOfGears;
 	}
+	public int getNumOfGears()
+	{
+		return numOfGears;
+	}
 	
-	public static void setGear(int gear)
+	public void setGear(int gear)
 	{
 		currentGear++;
+	}
+	public int getCurrentGear()
+	{
+		return currentGear;
 	}
 	
 	public int getSpeed()
@@ -69,6 +77,11 @@ public class Automobile {
 			maxSpeed = 60;
 		
 		return maxSpeed;	
+	}
+	
+	public String getCurrentStatus()
+	{
+		return String.format("\nCurrent Gear: %d\nCurrent Speed: %d", getCurrentGear(), getSpeed());
 	}
 	
 	public String toString()

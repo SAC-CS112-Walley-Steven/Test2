@@ -22,43 +22,47 @@ public class TestMain {
 		System.out.println("\nMake your own car..");
 		System.out.print("Enter Car Year: ");
 		userCar.setYear(input.nextInt());
-		System.out.println();
 		
 		System.out.print("Enter Car Make: ");
 		userCar.setMake(input.nextLine());
 		
-		System.out.print("\nEnter Car Model: ");
+		System.out.print("Enter Car Model: ");
 		userCar.setModel(input.nextLine());
 		
-		System.out.print("\nEnter Car Color: ");
+		System.out.print("Enter Car Color: ");
 		userCar.setColor(input.nextLine());
 		
-		System.out.print("\nEnter Car Name: ");
+		System.out.print("Enter Car Name: ");
 		userCar.setName(input.nextLine());
 		
-		System.out.print("\nEnter Car Number of Gears: ");
+		System.out.print("Enter Car Number of Gears: ");
 		userCar.setNumOfGears(input.nextInt());
 		
 		System.out.println("\nYou created the follow Automobile:"+userCar);
 		
 		System.out.printf("\nPress 1 to take %s for a test drive: ", userCar.getName());
+		int testDrive = input.nextInt();
 		
-		do
+		int numOfGears = userCar.getNumOfGears();
+		
+		while (testDrive ==1 && gear <= numOfGears)
 		{
 			gear++;
-			Automobile.setGear(gear);
+			userCar.setGear(gear);
+			System.out.println(userCar.getCurrentStatus());
 			
-			System.out.print("\nEnter the number of dices: ");
-			int numOfDices = input.nextInt(); 
-			int diceNum = Dice.Throw(numOfDices);
-		
-			System.out.println("Dice number is " + diceNum);
-			
-			System.out.print("Press 1 to increase gears, or 2 to turn off car: ");
-			nextGear = input.nextInt();
-		
+			System.out.print("Press 1 to increase gears, or 2 to terminate test drive: ");
+			testDrive = input.nextInt();
 		}
-		while (nextGear ==1);
+		
+		System.out.print(userCar);
+		System.out.print(userCar.getCurrentStatus());
+	
+		System.out.print("\nEnter the number of dices: ");
+		int numOfDices = input.nextInt(); 
+		int diceNum = Dice.Throw(numOfDices);
+	
+		System.out.println("Dice number is " + diceNum);
 	}
 
 }
