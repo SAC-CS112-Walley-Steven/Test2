@@ -55,7 +55,7 @@ public class TestMain {
 		
 
 		System.out.println(userCar);
-		System.out.printf("Reached top speed of %d MPH in %d Operating Cycles", userCar.getSpeed(), userCar.getOperatingCycle());
+		System.out.printf("Reached top speed of %.0f MPH in %d Operating Cycles", userCar.getSpeed(), userCar.getOperatingCycle());
 			
 	}
 

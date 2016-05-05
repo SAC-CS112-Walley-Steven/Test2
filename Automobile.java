@@ -67,7 +67,8 @@ public class Automobile {
 	}
 	public double getDistanceTravel()
 	{
-		double distanceTravel = getSpeed()/60;
+		double currentSpeed = getSpeed();
+		double distanceTravel = currentSpeed/60;
 		return distanceTravel;
 	
 	}
@@ -76,14 +77,14 @@ public class Automobile {
 	{
 		return currentGear;
 	}
-	public int getSpeed()
+	public double getSpeed()
 	{
-		int speed = currentGear * 10;
+		double speed = currentGear * 10;
 		return speed;	
 	}
 	public String getPerformance()
 	{
-		return String.format("\nCurrent Gear: %d\nCurrent Speed: %d\nDistance Traveled: %.2f\n", getGear(), getSpeed(), getDistanceTravel());
+		return String.format("\nCurrent Gear: %d\nCurrent Speed: %.0f\nDistance Traveled: %.2f\n", getGear(), getSpeed(), getDistanceTravel());
 	}
 	
 	public String toString()
