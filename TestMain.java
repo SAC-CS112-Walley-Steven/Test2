@@ -6,9 +6,6 @@ public class TestMain {
 		
 		Scanner input = new Scanner (System.in);
 		
-		int nextGear = 0;
-		int gear = 0;
-		
 		Automobile truck = new Automobile (2016,"Dodge","Ram","Grey","Big Boy", 3);
 		Automobile van = new Automobile (2016,"Toyota","Van","Green","Soccer Mom", 4);
 		Automobile sportCar = new Automobile (2016,"Dodge","Dart","Red","Speedy", 6);
@@ -24,6 +21,7 @@ public class TestMain {
 		userCar.setYear(input.nextInt());
 		
 		System.out.print("Enter Car Make: ");
+		input.nextLine();
 		userCar.setMake(input.nextLine());
 		
 		System.out.print("Enter Car Model: ");
@@ -40,30 +38,26 @@ public class TestMain {
 		
 		System.out.println("\nYou created the follow Automobile:"+userCar);
 		
+		System.out.print("\nEnter the number of dices to determine Operating Cycles: "); 
+		int operatingCycle = Dice.Throw(input.nextInt());
+		System.out.println("Operating Cycles = " + operatingCycle);
+		userCar.setOperatingCycle(operatingCycle);
+
 		System.out.printf("\nPress 1 to take %s for a test drive: ", userCar.getName());
 		int testDrive = input.nextInt();
 		
-		int numOfGears = userCar.getNumOfGears();
 		
-		while (testDrive ==1 && gear <= numOfGears)
+		for (int count=1; count <= operatingCycle; count++)
 		{
-			userCar.setOperatingCycle();
-			gear++;
-			userCar.setGear(gear);
-			System.out.println(userCar.getCurrentStatus());
-			
-			System.out.print("Press 1 to increase gears, or 2 to terminate test drive: ");
-			testDrive = input.nextInt();
+			System.out.print(userCar.getPerformance());
+			userCar.drive();	
 		}
 		
-		System.out.print(userCar);
-		System.out.print(userCar.getCurrentStatus());
-	
-		System.out.print("\nEnter the number of dices: ");
-		int numOfDices = input.nextInt(); 
-		int diceNum = Dice.Throw(numOfDices);
-	
-		System.out.println("Dice number is " + diceNum);
+
+		System.out.println(userCar);
+		System.out.printf("Reached top speed of %d MPH in %d Operating Cycles", userCar.getSpeed(), userCar.getOperatingCycle());
+			
 	}
 
 }
+

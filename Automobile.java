@@ -1,4 +1,3 @@
-
 public class Automobile {
 	
 	private int year;
@@ -7,7 +6,7 @@ public class Automobile {
 	private String color;
 	private String name;
 	private int numOfGears;
-	private int currentGear;
+	private int currentGear=1;
 	private int operatingCycle;
 	
 	public Automobile (int year, String make, String model, String color, String name, int numOfGears)
@@ -51,42 +50,40 @@ public class Automobile {
 	{
 		return numOfGears;
 	}
-	public void setOperatingCycle()
+	public void setOperatingCycle(int cycle)
 	{
-		operatingCycle++;
+		operatingCycle = cycle;
 	}
+	public int getOperatingCycle()
+	{
+		return operatingCycle;
+	}
+	public void drive()
+	{
+		if (currentGear < numOfGears)
+		{
+			currentGear++;
+		}
+	}
+	public double getDistanceTravel()
+	{
+		double distanceTravel = getSpeed()/60;
+		return distanceTravel;
 	
-	public void setGear(int gear)
-	{
-		currentGear++;
 	}
-	public int getCurrentGear()
+		
+	public int getGear()
 	{
 		return currentGear;
 	}
-	
 	public int getSpeed()
 	{
-		int maxSpeed = 0;
-		if (currentGear ==1)
-			maxSpeed = 10;
-		else if (currentGear ==2)
-			maxSpeed = 20;
-		else if (currentGear ==3)
-			maxSpeed = 30;
-		else if (currentGear ==4)
-			maxSpeed = 40;
-		else if (currentGear ==5)
-			maxSpeed = 50;
-		else if (currentGear ==6)
-			maxSpeed = 60;
-		
-		return maxSpeed;	
+		int speed = currentGear * 10;
+		return speed;	
 	}
-	
-	public String getCurrentStatus()
+	public String getPerformance()
 	{
-		return String.format("\nCurrent Gear: %d\nCurrent Speed: %d", getCurrentGear(), getSpeed());
+		return String.format("\nCurrent Gear: %d\nCurrent Speed: %d\nDistance Traveled: %.2f\n", getGear(), getSpeed(), getDistanceTravel());
 	}
 	
 	public String toString()
