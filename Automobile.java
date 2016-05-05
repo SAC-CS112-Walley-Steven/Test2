@@ -8,6 +8,7 @@ public class Automobile {
 	private String name;
 	private int numOfGears;
 	private int currentGear;
+	private int operatingCycle;
 	
 	public Automobile (int year, String make, String model, String color, String name, int numOfGears)
 	{
@@ -49,6 +50,10 @@ public class Automobile {
 	public int getNumOfGears()
 	{
 		return numOfGears;
+	}
+	public void setOperatingCycle()
+	{
+		operatingCycle++;
 	}
 	
 	public void setGear(int gear)

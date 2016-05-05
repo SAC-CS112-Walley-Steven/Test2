@@ -47,6 +47,7 @@ public class TestMain {
 		
 		while (testDrive ==1 && gear <= numOfGears)
 		{
+			userCar.setOperatingCycle();
 			gear++;
 			userCar.setGear(gear);
 			System.out.println(userCar.getCurrentStatus());
