@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class TestMain {
 
 	public static void main(String[] args) {
-Scanner input = new Scanner (System.in);
+		
+		Scanner input = new Scanner (System.in);
 		
 		Automobile truck = new Automobile (2016,"Dodge","Ram","Grey","Big Boy", 3);
 		Automobile van = new Automobile (2016,"Toyota","Van","Green","Soccer Mom", 4);
