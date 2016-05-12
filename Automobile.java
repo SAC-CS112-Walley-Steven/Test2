@@ -7,8 +7,10 @@ public class Automobile {
 	private String name;
 	private int numOfGears;
 	private int currentGear=1;
-	private int operatingCycle;
-	
+	private int operatingCycle=0;
+	private int currentSpeed=0;
+	private double distanceTraveled=0.0;
+
 	public Automobile (int year, String make, String model, String color, String name, int numOfGears)
 	{
 		this.year = year;
@@ -58,18 +60,21 @@ public class Automobile {
 	{
 		return operatingCycle;
 	}
-	public void drive()
+	
+	public void drive(int opCycle)
 	{
+		setOperatingCycle(opCycle);
 		if (currentGear < numOfGears)
 		{
 			currentGear++;
 		}
+		currentSpeed = currentGear*10;
+		distanceTraveled= distanceTraveled + currentSpeed/60.0;
 	}
+
 	public double getDistanceTravel()
 	{
-		double currentSpeed = getSpeed();
-		double distanceTravel = currentSpeed/60;
-		return distanceTravel;
+		return distanceTraveled;
 	
 	}
 		
@@ -77,21 +82,12 @@ public class Automobile {
 	{
 		return currentGear;
 	}
-	public double getSpeed()
-	{
-		double speed = currentGear * 10;
-		return speed;	
-	}
-	public String getPerformance()
-	{
-		return String.format("\nCurrent Gear: %d\nCurrent Speed: %.0f\nDistance Traveled: %.2f\n", getGear(), getSpeed(), getDistanceTravel());
-	}
+	
 	
 	public String toString()
 	{
-		return String.format("\n-Automobile Attributes-\nYear: %d\nMake: %s\nModel: %s\nColor: %s\nName: %s\nNumber of Gears: %d", 
-				year, make, model, color, name, numOfGears);
-	}
-	
+		return String.format("\n-Automobile Attributes- Year: %d Make: %s Model: %s Color: %s Name: %s Gears: %d  Current OpSycle: %d Current Gear: %d Current Speed: %d Distance Traveled: %s", 
+				year, make, model, color, name, numOfGears, operatingCycle, currentGear, currentSpeed, String.format("%1$,.2f", distanceTraveled)  );
+ 	}
 
 }
